@@ -1,0 +1,51 @@
+﻿@page
+@model MiniAccountsSystem.Areas.Identity.Pages.Admin.chartOfAccount.IndexModel
+@{
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-area="Identity" asp-page="/Admin/ChartOfAccount/ChartOfAccount">Create New Account</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChartOfAccount[0].AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChartOfAccount[0].ParentAccountId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChartOfAccount[0].AccountType)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ChartOfAccount)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentAccountId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountType)
+                </td>
+               
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.AccountId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.AccountId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.AccountId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

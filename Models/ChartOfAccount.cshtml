@@ -1,0 +1,35 @@
+﻿@page
+@model MiniAccountsSystem.Models.ChartOfAccountsModel
+
+@{
+    ViewData["Title"] = "Chart of Accounts";
+}
+<h2>Chart of Accounts</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Account.AccountId" />
+    <div>
+        <label>Account Name</label>
+        <input asp-for="Account.AccountName" />
+    </div>
+    <div>
+        <label>Account Type</label>
+        <input asp-for="Account.AccountType" />
+    </div>
+    <div>
+        <label>Parent Account</label>
+        <select asp-for="Account.ParentAccountId" asp-items="Model.ParentAccountList">
+            <option value="">-- None --</option>
+        </select>
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+<hr />
+
+<ul>
+    @foreach (var acc in Model.Accounts)
+    {
+        <li>@acc.AccountName (@acc.AccountType)</li>
+    }
+</ul>
