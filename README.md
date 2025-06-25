@@ -1,4 +1,4 @@
-# MiniAccountsSystem
+# Mini_Account_System
 
 ## please follow the below instructions:
 
