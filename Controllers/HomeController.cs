@@ -17,7 +17,7 @@ namespace MiniAccountsSystem.Controllers
         {
             _logger = logger;
         }
-
+        //jlssdf
         public IActionResult Index()
         {
             return View();
